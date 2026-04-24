@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login — Products App</title>
+  <title>Login — Clever Store</title>
   <link rel="stylesheet" href="../css/style.css"/>
   
   <style>
@@ -13,72 +13,77 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      background: #f0f4f8;
+      background: linear-gradient(135deg, #ede9fe 0%, #e0e7ff 50%, #dbeafe 100%);
     }
 
     .auth-box {
       background: #fff;
-      border-radius: 16px;
-      padding: 36px 32px;
+      border-radius: var(--radius-xl);
+      padding: 44px 40px;
       width: 100%;
-      max-width: 400px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+      max-width: 420px;
+      box-shadow: var(--shadow-xl);
+      border: 2px solid var(--primary-light);
     }
 
     .auth-logo {
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: 800;
-      margin-bottom: 6px;
-      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      letter-spacing: -0.8px;
+      color: var(--gray-900);
     }
 
-    .auth-logo span { color: #48bb78; }
+    .auth-logo span { color: var(--primary); }
 
     .auth-subtitle {
-      color: #718096;
-      font-size: 0.875rem;
-      margin-bottom: 28px;
+      color: var(--gray-500);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
     }
 
     .form-error {
-      background: #fff5f5;
-      border: 1px solid #fed7d7;
-      color: #c53030;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 0.82rem;
-      margin-bottom: 16px;
+      background: var(--danger-light);
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
       display: none;
       line-height: 1.5;
+      font-weight: 500;
     }
 
     .form-success {
-      background: #f0fff4;
-      border: 1px solid #9ae6b4;
-      color: #276749;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 0.82rem;
-      margin-bottom: 16px;
+      background: var(--success-light);
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
       display: none;
+      font-weight: 500;
     }
 
     .auth-footer {
       text-align: center;
-      margin-top: 20px;
-      font-size: 0.85rem;
-      color: #718096;
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: var(--gray-500);
     }
 
-    .auth-footer a { color: #4299e1; font-weight: 700; text-decoration: none; }
+    .auth-footer a { color: var(--primary); font-weight: 700; text-decoration: none; }
     .auth-footer a:hover { text-decoration: underline; }
 
     .divider {
       text-align: center;
-      color: #a0aec0;
-      font-size: 0.75rem;
-      margin: 16px 0;
+      color: var(--gray-400);
+      font-size: 0.8rem;
+      margin: 20px 0;
       position: relative;
+      font-weight: 500;
     }
 
     .divider::before, .divider::after {
@@ -87,7 +92,7 @@
       top: 50%;
       width: 42%;
       height: 1px;
-      background: #e2e8f0;
+      background: var(--gray-200);
     }
     .divider::before { left: 0; }
     .divider::after  { right: 0; }
@@ -99,27 +104,27 @@
   <div class="auth-wrap">
     <div class="auth-box">
 
-      <div class="auth-logo">Shop<span>API</span></div>
-      <p class="auth-subtitle">Sign in to manage your products</p>
+      <div class="auth-logo">Clever <span>Store</span></div>
+      <p class="auth-subtitle">Sign in to your account</p>
 
       <div class="form-success" id="login-success">
-        ✓ Account created! You can now log in.
+        ✓ Account created successfully! You can now log in.
       </div>
 
       <div class="form-error" id="login-error"></div>
 
-      <div class="form-group" style="margin-bottom:14px;">
+      <div class="form-group" style="margin-bottom:18px;">
         <label>Email</label>
         <input type="text" id="email" placeholder="e.g. jane@example.com"/>
       </div>
 
-      <div class="form-group" style="margin-bottom:20px;">
+      <div class="form-group" style="margin-bottom:24px;">
         <label>Password</label>
         <input type="password" id="password" placeholder="Your password"
           onkeydown="if(event.key==='Enter') login()"/>
       </div>
 
-      <button class="btn btn-green" id="btn-login" onclick="login()" style="width:100%;justify-content:center;">
+      <button class="btn btn-blue" id="btn-login" onclick="login()" style="width:100%;justify-content:center;padding:14px 22px;font-size:1rem;">
         Log In
       </button>
 

@@ -3,29 +3,31 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Seller Hub — ShopAPI</title>
+  <title>Seller Hub — Clever Store</title>
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
     .tab-nav {
       display: flex;
       gap: 8px;
       margin-bottom: 24px;
-      border-bottom: 2px solid #e2e8f0;
+      border-bottom: 2px solid var(--gray-200);
     }
     .tab-btn {
       background: none;
       border: none;
-      padding: 10px 18px;
-      font-size: 0.85rem;
+      padding: 12px 20px;
+      font-size: 0.9rem;
       font-weight: 700;
-      color: #718096;
+      color: var(--gray-500);
       cursor: pointer;
       border-bottom: 2px solid transparent;
       margin-bottom: -2px;
+      transition: all 0.2s ease;
     }
+    .tab-btn:hover { color: var(--primary); }
     .tab-btn.active {
-      color: #2b6cb0;
-      border-bottom-color: #2b6cb0;
+      color: var(--primary);
+      border-bottom-color: var(--primary);
     }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
@@ -37,22 +39,23 @@
     }
     .orders-table th {
       text-align: left;
-      padding: 10px 14px;
+      padding: 12px 16px;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #718096;
-      border-bottom: 2px solid #e2e8f0;
+      color: var(--gray-500);
+      border-bottom: 2px solid var(--gray-200);
+      background: var(--gray-50);
     }
     .orders-table td {
-      padding: 12px 14px;
-      border-bottom: 1px solid #f0f4f8;
-      color: #2d3748;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--gray-100);
+      color: var(--gray-700);
       vertical-align: middle;
     }
     .orders-table tr:last-child td { border-bottom: none; }
-    .orders-table tr:hover td { background: #f7fafc; }
+    .orders-table tr:hover td { background: var(--gray-50); }
 
     .badge-pending { background: #fefcbf; color: #744210; }
     .badge-confirmed { background: #c6f6d5; color: #22543d; }
@@ -75,7 +78,7 @@
 <body>
 
   <nav class="navbar">
-    <a class="navbar-logo" href="../index.html">Shop<span>API</span></a>
+    <a class="navbar-logo" href="../index.html">Clever <span>Store</span></a>
     <div class="navbar-links">
       <a href="../index.html">Home</a>
       <a href="seller.html" class="active">Seller Hub</a>
