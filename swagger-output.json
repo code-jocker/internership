@@ -158,6 +158,12 @@
                   "password": {
                     "example": "any"
                   },
+                  "fullName": {
+                    "example": "any"
+                  },
+                  "phoneNumber": {
+                    "example": "any"
+                  },
                   "userData": {
                     "example": "any"
                   }
@@ -168,7 +174,7 @@
         }
       }
     },
-    "/api/sign": {
+    "/api/login": {
       "post": {
         "description": "",
         "responses": {
@@ -226,6 +232,58 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "size",
+                  "price",
+                  "type",
+                  "status"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "T-Shirt"
+                  },
+                  "size": {
+                    "type": "string",
+                    "example": "M"
+                  },
+                  "price": {
+                    "type": "number",
+                    "example": 29.99
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "male",
+                      "female",
+                      "unisex"
+                    ],
+                    "example": "unisex"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "A nice shirt"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "available",
+                      "unvailable"
+                    ],
+                    "example": "available"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -383,6 +441,58 @@
           "500": {
             "description": "Internal Server Error"
           }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -434,6 +544,44 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "contact",
+                  "status"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "My Shop"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Best shop in town"
+                  },
+                  "contact": {
+                    "type": "string",
+                    "example": "+250788000000"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "active",
+                      "inactive",
+                      "pending"
+                    ],
+                    "example": "pending"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -509,6 +657,110 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/notifications/my": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/notifications/all": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/getNotifications": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/notifications/{id}/read": {
+      "patch": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/markNotificationRead/{id}": {
+      "patch": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/notifications/read-all": {
+      "patch": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"

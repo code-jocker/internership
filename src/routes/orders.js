@@ -9,6 +9,7 @@ orderRoutes.get('/getAllOrders',protect,authorize("admin","seller"),getAllOrders
 orderRoutes.post('/createOrder',protect,authorize("customer"), createOrder);
 orderRoutes.get('/getOrder/:id',protect,authorize("admin","seller","customer"), getOrder);
 orderRoutes.put('/updateOrder/:id',protect,authorize("admin","seller"), updateOrder);
+orderRoutes.patch('/updateOrder/:id',protect,authorize("admin","seller"), updateOrder);
 orderRoutes.delete('/deleteOrder/:id',protect,authorize("admin","seller"), deleteOrder);
 
 export default orderRoutes;

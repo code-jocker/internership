@@ -4,6 +4,7 @@ import userRoutes from "./src/routes/users.js";
 import authRoutes from "./src/routes/auth.js";
 import productRoutes from "./src/routes/products.js";
 import orderRoutes from "./src/routes/orders.js";
+import notificationRoutes from "./src/routes/notifications.js";
 import shopRoutes from "./src/routes/shops.js";
 import dotenv from "dotenv";
 import swaggerUi from 'swagger-ui-express';
@@ -26,6 +27,7 @@ app.use("/api", authRoutes);
 app.use("/api", productRoutes);
 app.use("/api", orderRoutes);
 app.use("/api", shopRoutes);
+app.use("/api", notificationRoutes);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
@@ -34,6 +36,7 @@ sequelize.authenticate()
     .then(() => {
         app.listen(PORT, () => {
             console.log("Database connected successfully💯💯💯💯💯💯💯");
+                console.log(`Our server is running  at http://localhost:${PORT}`);
             // Updated to use the actual PORT variable
             console.log(`Swagger UI available at http://localhost:${PORT}/api-docs`);
         });

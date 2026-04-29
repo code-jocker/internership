@@ -3,6 +3,7 @@ import User from "./users.js";
 import Product from "./product.js";
 import Shop from "./shop.js";
 import Order from "./orders.js";
+import Notification from "./notification.js";
 import "./associations.js";
 
 const db={
@@ -10,7 +11,8 @@ const db={
     User,
     Product,
     Shop,
-    Order
+    Order,
+    Notification
 };
     
 
