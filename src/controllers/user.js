@@ -30,6 +30,28 @@ export const getAllUsers=async(req,res)=>{
 
  //create user
 export const createUser = async (req, res) => {
+  /* #swagger.requestBody = {
+    required: true,
+    content: {
+      "application/json": {
+        schema: {
+          type: "object",
+          required: ["fullname", "email", "password", "phonenumber", "location", "gender"],
+          properties: {
+            fullname: { type: "string", example: "John Doe" },
+            email: { type: "string", example: "john@example.com" },
+            password: { type: "string", example: "secret123" },
+            phonenumber: { type: "string", example: "+250788000000" },
+            location: { type: "string", example: "Kigali" },
+            gender: { type: "string", enum: ["male", "female", "other"] },
+            age: { type: "integer", example: 25 },
+            date_of_birth: { type: "string", format: "date", example: "1999-01-01" },
+            type: { type: "string", enum: ["admin", "customer", "seller", "delivery"] }
+          }
+        }
+      }
+    }
+  } */
   try {
     const { password, ...userData } = req.body;
 
